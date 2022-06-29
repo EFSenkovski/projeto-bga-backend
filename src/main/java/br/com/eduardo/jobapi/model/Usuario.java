@@ -42,10 +42,6 @@ public class Usuario {
     @JoinTable(name = "usuario_permissao", joinColumns = @JoinColumn(name = "id_usuario"), inverseJoinColumns = @JoinColumn(name = "id_permissao"))
     private List<Permissao> permissoes;
 
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "usuario_empresa", joinColumns = @JoinColumn(name = "id_usuario"), inverseJoinColumns = @JoinColumn(name = "id_empresa"))
-    private List<Empresa> empresas;
-
     public int getAdministrador() {
         return administrador;
     }
@@ -101,14 +97,6 @@ public class Usuario {
     public void setSenha(String senha) {
         this.senha = senha;
     }    
-
-    public List<Empresa> getEmpresas() {
-        return empresas;
-    }
-
-    public void setEmpresas(List<Empresa> empresas) {
-        this.empresas = empresas;
-    }
 
     @Override
     public int hashCode() {

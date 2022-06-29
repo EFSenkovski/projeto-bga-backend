@@ -1,18 +1,21 @@
 package br.com.eduardo.jobapi.model;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 import lombok.NonNull;
 
@@ -32,7 +35,17 @@ public class CaixaMovimento {
     @NotNull
     @ManyToOne
     @JoinColumn(name = "id_usuario")     
-    private Usuario usuario;    
+    private Usuario usuario;
+    
+    @NotNull
+    @ManyToOne
+    @JoinColumn(name = "id_centro_custo")     
+    private CentroCusto centroCusto;  
+
+    @NotNull
+    @ManyToOne
+    @JoinColumn(name = "id_pessoa")     
+    private Pessoa pessoa;  
 
     private String descricao;
 
@@ -45,6 +58,12 @@ public class CaixaMovimento {
     @NonNull
     @Column(name = "data_movimento")
     private LocalDateTime dataMovimento;
+
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "pessoas_comissoes",
+        joinColumns={@JoinColumn(name="id_pessoa_comissao")},
+        inverseJoinColumns={@JoinColumn(name="id_pessoa")})
+    private List<Pessoa> pessoasComissoes;
 
     @Override
     public int hashCode() {
@@ -124,5 +143,32 @@ public class CaixaMovimento {
         this.dataMovimento = dataMovimento;
     }
 
+    public CentroCusto getCentroCusto() {
+        return centroCusto;
+    }
+
+    public void setCentroCusto(CentroCusto centroCusto) {
+        this.centroCusto = centroCusto;
+    }
+
+    public Pessoa getPessoa() {
+        return pessoa;
+    }
+
+    public void setPessoa(Pessoa pessoa) {
+        this.pessoa = pessoa;
+    }
+
+    public List<Pessoa> getPessoasComissoes() {
+        return pessoasComissoes;
+    }
+
+    public void setPessoasComissoes(List<Pessoa> pessoasComissoes) {
+        this.pessoasComissoes = pessoasComissoes;
+    }
+
+    
+
+    
     
 }

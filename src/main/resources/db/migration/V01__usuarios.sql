@@ -43,13 +43,3 @@ INSERT INTO usuario_permissao(id_usuario, id_permissao) values (1,5);
 INSERT INTO usuario_permissao(id_usuario, id_permissao) values (1,6);
 INSERT INTO usuario_permissao(id_usuario, id_permissao) values (1,7);
 INSERT INTO usuario_permissao(id_usuario, id_permissao) values (1,8);
-
-CREATE TABLE usuario_empresa (
-	id_usuario BIGINT(20),
-	id_empresa BIGINT(20),
-	PRIMARY KEY(id_usuario, id_empresa),
-	FOREIGN KEY(id_usuario) references usuarios(id),
-	FOREIGN KEY(id_empresa) references empresas(id)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-INSERT INTO usuario_empresa(id_usuario, id_empresa) values (1,1);
