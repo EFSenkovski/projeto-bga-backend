@@ -5,7 +5,9 @@ import br.com.eduardo.jobapi.repository.PessoaRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.stereotype.Service;
 
+@Service
 public class PessoaService {
 
     @Autowired

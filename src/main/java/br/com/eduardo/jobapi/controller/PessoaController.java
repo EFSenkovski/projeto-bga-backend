@@ -26,9 +26,6 @@ import java.util.Optional;
 public class PessoaController {
 
     @Autowired
-    private Pessoa pessoa;
-
-    @Autowired
     private PessoaRepository pessoaRepository;
 
     @Autowired
@@ -38,7 +35,7 @@ public class PessoaController {
     private ApplicationEventPublisher publisher;
 
     @GetMapping
-    //@PreAuthorize("hasAuthority('ROLE_LISTAR_PESSOAS') and hasAuthority('SCOPE_read')")
+    @PreAuthorize("hasAuthority('ROLE_LISTAR_PESSOAS') and hasAuthority('SCOPE_read')")
     public List<Pessoa> listarTodos(){
         return pessoaRepository.findAll();
     }
