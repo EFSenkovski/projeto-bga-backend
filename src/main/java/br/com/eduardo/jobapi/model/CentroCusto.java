@@ -1,12 +1,16 @@
 package br.com.eduardo.jobapi.model;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
+@Getter
+@Setter
 @Entity
 @Table(name = "centros_custo")
 public class CentroCusto {
@@ -22,37 +26,6 @@ public class CentroCusto {
 
     private String tags;
 
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-
-    public String getTipoEntradaSaida() {
-        return tipoEntradaSaida;
-    }
-
-    public void setTipoEntradaSaida(String tipoEntradaSaida) {
-        this.tipoEntradaSaida = tipoEntradaSaida;
-    }
-
-    public String getTags() {
-        return tags;
-    }
-
-    public void setTags(String tags) {
-        this.tags = tags;
-    }
 
     @Override
     public int hashCode() {

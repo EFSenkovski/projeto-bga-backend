@@ -30,8 +30,7 @@ import javax.validation.Valid;
 public class UsuarioController {
 
     @Autowired
-    private UsuarioRepository 
-    usuarioRepository;
+    private UsuarioRepository usuarioRepository;
 
     @Autowired
     private UsuarioService usuarioService;
@@ -52,7 +51,6 @@ public class UsuarioController {
 		return usuarioRecuperado.isPresent() ?
 				ResponseEntity.ok(usuarioRecuperado.get()) : ResponseEntity.notFound().build();
 	}
-	
 
     @PostMapping
     public ResponseEntity<Usuario> criar(@Valid @RequestBody Usuario usuario, HttpServletResponse response){

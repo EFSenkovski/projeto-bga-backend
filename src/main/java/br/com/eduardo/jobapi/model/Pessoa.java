@@ -1,5 +1,8 @@
 package br.com.eduardo.jobapi.model;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
@@ -13,6 +16,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+@Getter
+@Setter
 @Entity@Table(name = "pessoas")
 public class Pessoa {
     @Id
@@ -33,7 +38,8 @@ public class Pessoa {
 
     @Column(name = "rg_ie")
     private String rgIe;
-    
+
+    @Column(name = "email")
     private String email;
 
     @Column(name = "data_nascimento_fundacao")
@@ -63,150 +69,6 @@ public class Pessoa {
 
     @Column(name = "data_hora_atualizacao")
     private LocalDateTime dataHoraAtualizacao;
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getNomeRazaoSocial() {
-        return nomeRazaoSocial;
-    }
-
-    public void setNomeRazaoSocial(String nomeRazaoSocial) {
-        this.nomeRazaoSocial = nomeRazaoSocial;
-    }
-
-    public String getNomeFantasia() {
-        return nomeFantasia;
-    }
-
-    public void setNomeFantasia(String nomeFantasia) {
-        this.nomeFantasia = nomeFantasia;
-    }
-
-    public String getPessoaFisicaJuridica() {
-        return pessoaFisicaJuridica;
-    }
-
-    public void setPessoaFisicaJuridica(String pessoaFisicaJuridica) {
-        this.pessoaFisicaJuridica = pessoaFisicaJuridica;
-    }
-
-    public String getCpfCnpj() {
-        return cpfCnpj;
-    }
-
-    public void setCpfCnpj(String cpfCnpj) {
-        this.cpfCnpj = cpfCnpj;
-    }
-
-    public String getRgIe() {
-        return rgIe;
-    }
-
-    public void setRgIe(String rgIe) {
-        this.rgIe = rgIe;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public LocalDate getDataNascimentoFundacao() {
-        return dataNascimentoFundacao;
-    }
-
-    public void setDataNascimentoFundacao(LocalDate dataNascimentoFundacao) {
-        this.dataNascimentoFundacao = dataNascimentoFundacao;
-    }
-
-    public String getEndereco() {
-        return endereco;
-    }
-
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
-    }
-
-    public String getCidade() {
-        return cidade;
-    }
-
-    public void setCidade(String cidade) {
-        this.cidade = cidade;
-    }
-
-    public String getCep() {
-        return cep;
-    }
-
-    public void setCep(String cep) {
-        this.cep = cep;
-    }
-
-    public String getUf() {
-        return uf;
-    }
-
-    public void setUf(String uf) {
-        this.uf = uf;
-    }
-
-    public String getTelefone() {
-        return telefone;
-    }
-
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
-    }
-
-    public String getCelular() {
-        return celular;
-    }
-
-    public void setCelular(String celular) {
-        this.celular = celular;
-    }
-
-    public TipoPessoa getTipoPessoa() {
-        return tipoPessoa;
-    }
-
-    public void setTipoPessoa(TipoPessoa tipoPessoa) {
-        this.tipoPessoa = tipoPessoa;
-    }
-
-    public String getObservacao() {
-        return observacao;
-    }
-
-    public void setObservacao(String observacao) {
-        this.observacao = observacao;
-    }
-
-    public LocalDateTime getDataHoraCriacao() {
-        return dataHoraCriacao;
-    }
-
-    public void setDataHoraCriacao(LocalDateTime dataHoraCriacao) {
-        this.dataHoraCriacao = dataHoraCriacao;
-    }
-
-    public LocalDateTime getDataHoraAtualizacao() {
-        return dataHoraAtualizacao;
-    }
-
-    public void setDataHoraAtualizacao(LocalDateTime dataHoraAtualizacao) {
-        this.dataHoraAtualizacao = dataHoraAtualizacao;
-    }
 
     @Override
     public int hashCode() {

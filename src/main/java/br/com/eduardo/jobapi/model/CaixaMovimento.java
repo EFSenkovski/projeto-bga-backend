@@ -17,8 +17,12 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 
+import lombok.Getter;
 import lombok.NonNull;
+import lombok.Setter;
 
+@Getter
+@Setter
 @Entity
 @Table(name = "caixas_movimentacao")
 public class CaixaMovimento {
@@ -87,88 +91,4 @@ public class CaixaMovimento {
         return true;
     }
 
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public Caixa getCaixa() {
-        return caixa;
-    }
-
-    public void setCaixa(Caixa caixa) {
-        this.caixa = caixa;
-    }
-
-    public Usuario getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-
-    public Double getValor() {
-        return valor;
-    }
-
-    public void setValor(Double valor) {
-        this.valor = valor;
-    }
-
-    public String getTipoMovimento() {
-        return tipoMovimento;
-    }
-
-    public void setTipoMovimento(String tipoMovimento) {
-        this.tipoMovimento = tipoMovimento;
-    }
-
-    public LocalDateTime getDataMovimento() {
-        return dataMovimento;
-    }
-
-    public void setDataMovimento(LocalDateTime dataMovimento) {
-        this.dataMovimento = dataMovimento;
-    }
-
-    public CentroCusto getCentroCusto() {
-        return centroCusto;
-    }
-
-    public void setCentroCusto(CentroCusto centroCusto) {
-        this.centroCusto = centroCusto;
-    }
-
-    public Pessoa getPessoa() {
-        return pessoa;
-    }
-
-    public void setPessoa(Pessoa pessoa) {
-        this.pessoa = pessoa;
-    }
-
-    public List<Pessoa> getPessoasComissoes() {
-        return pessoasComissoes;
-    }
-
-    public void setPessoasComissoes(List<Pessoa> pessoasComissoes) {
-        this.pessoasComissoes = pessoasComissoes;
-    }
-
-    
-
-    
-    
 }

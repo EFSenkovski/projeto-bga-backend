@@ -1,9 +1,13 @@
 package br.com.eduardo.jobapi.model;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
+@Getter
+@Setter
 @Entity
 @Table(name = "permissoes")
 public class Permissao {
@@ -12,22 +16,7 @@ public class Permissao {
     private Long id;
 
     private String descricao;
-
-    public Long getCodigo() {
-        return id;
-    }
-
-    public void setCodigo(Long codigo) {
-        this.id = codigo;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
+    
 
     @Override
     public int hashCode() {

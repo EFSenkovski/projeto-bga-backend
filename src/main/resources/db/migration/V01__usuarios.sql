@@ -34,6 +34,10 @@ INSERT INTO permissoes (id, descricao) values (5,'ROLE_LISTAR_CAIXAS');
 INSERT INTO permissoes (id, descricao) values (6,'ROLE_CADASTRAR_CAIXAS');
 INSERT INTO permissoes (id, descricao) values (7,'ROLE_LISTAR_MOVIMENTACOES');
 INSERT INTO permissoes (id, descricao) values (8,'ROLE_CADASTRAR_MOVIMENTACOES');
+INSERT INTO permissoes (id, descricao) values (9,'ROLE_CADASTRAR_PESSOAS');
+INSERT INTO permissoes (id, descricao) values (10,'ROLE_LISTAR_PESSOAS');
+INSERT INTO permissoes (id, descricao) values (11,'ROLE_CADASTRAR_TIPO_PESSOAS');
+INSERT INTO permissoes (id, descricao) values (12,'ROLE_LISTAR_TIPO_PESSOAS');
 
 INSERT INTO usuario_permissao(id_usuario, id_permissao) values (1,1);
 INSERT INTO usuario_permissao(id_usuario, id_permissao) values (1,2);
@@ -43,3 +47,7 @@ INSERT INTO usuario_permissao(id_usuario, id_permissao) values (1,5);
 INSERT INTO usuario_permissao(id_usuario, id_permissao) values (1,6);
 INSERT INTO usuario_permissao(id_usuario, id_permissao) values (1,7);
 INSERT INTO usuario_permissao(id_usuario, id_permissao) values (1,8);
+INSERT INTO usuario_permissao(id_usuario, id_permissao) values (1,9);
+INSERT INTO usuario_permissao(id_usuario, id_permissao) values (1,10);
+INSERT INTO usuario_permissao(id_usuario, id_permissao) values (1,11);
+INSERT INTO usuario_permissao(id_usuario, id_permissao) values (1,12);

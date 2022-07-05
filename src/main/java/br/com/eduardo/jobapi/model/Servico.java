@@ -1,5 +1,8 @@
 package br.com.eduardo.jobapi.model;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
@@ -12,7 +15,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
-
+@Getter
+@Setter
 @Entity
 @Table(name = "servicos")
 public class Servico {
@@ -42,70 +46,6 @@ public class Servico {
 
    @Column(name = "data_hora_atualizacao")
    private LocalDateTime dataHoraAtualizacao;
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-
-    public LocalDate getDataInicio() {
-        return dataInicio;
-    }
-
-    public void setDataInicio(LocalDate dataInicio) {
-        this.dataInicio = dataInicio;
-    }
-
-    public LocalDate getDataFinal() {
-        return dataFinal;
-    }
-
-    public void setDataFinal(LocalDate dataFinal) {
-        this.dataFinal = dataFinal;
-    }
-
-    public String getnProcesso() {
-        return nProcesso;
-    }
-
-    public void setnProcesso(String nProcesso) {
-        this.nProcesso = nProcesso;
-    }
-
-    public Pessoa getPessoa() {
-        return pessoa;
-    }
-
-    public void setPessoa(Pessoa pessoa) {
-        this.pessoa = pessoa;
-    }
-
-    public LocalDateTime getDataHoraCriacao() {
-        return dataHoraCriacao;
-    }
-
-    public void setDataHoraCriacao(LocalDateTime dataHoraCriacao) {
-        this.dataHoraCriacao = dataHoraCriacao;
-    }
-
-    public LocalDateTime getDataHoraAtualizacao() {
-        return dataHoraAtualizacao;
-    }
-
-    public void setDataHoraAtualizacao(LocalDateTime dataHoraAtualizacao) {
-        this.dataHoraAtualizacao = dataHoraAtualizacao;
-    }
 
     @Override
     public int hashCode() {

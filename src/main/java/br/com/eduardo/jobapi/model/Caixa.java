@@ -1,5 +1,8 @@
 package br.com.eduardo.jobapi.model;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.time.LocalDateTime;
 
 import javax.persistence.Column;
@@ -8,7 +11,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
+@Getter
+@Setter
 @Entity
 @Table(name = "caixas")
 public class Caixa {
@@ -53,54 +57,6 @@ public class Caixa {
         return true;
     }
 
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-
-    public Double getValorAtual() {
-        return valorAtual;
-    }
-
-    public void setValorAtual(Double valorAtual) {
-        this.valorAtual = valorAtual;
-    }
-
-    public LocalDateTime getDataUltimaMovimentacao() {
-        return dataUltimaMovimentacao;
-    }
-
-    public void setDataUltimaMovimentacao(LocalDateTime dataUltimaMovimentacao) {
-        this.dataUltimaMovimentacao = dataUltimaMovimentacao;
-    }
-
-    public LocalDateTime getDataHoraCriacao() {
-        return dataHoraCriacao;
-    }
-
-    public void setDataHoraCriacao(LocalDateTime dataHoraCriacao) {
-        this.dataHoraCriacao = dataHoraCriacao;
-    }
-
-    public LocalDateTime getDataHoraAtualizacao() {
-        return dataHoraAtualizacao;
-    }
-
-    public void setDataHoraAtualizacao(LocalDateTime dataHoraAtualizacao) {
-        this.dataHoraAtualizacao = dataHoraAtualizacao;
-    }
 
     
 }
