@@ -23,7 +23,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/tipopessoa")
+@RequestMapping("/tipospessoa")
 public class TipoPessoaController {
 
     @Autowired
