@@ -5,14 +5,13 @@ import br.com.eduardo.jobapi.repository.TipoPessoaRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.stereotype.Service;
 
+@Service
 public class TipoPessoaService {
 
     @Autowired
     private TipoPessoaRepository tipoPessoaRepository;
-
-    @Autowired
-    private TipoPessoa tipoPessoa;
 
     public TipoPessoa buscaTipoPessoaPeloId(Long id){
         TipoPessoa usuario = tipoPessoaRepository.findById(id).orElseThrow(() -> new EmptyResultDataAccessException(1));

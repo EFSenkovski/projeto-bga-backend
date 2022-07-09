@@ -57,6 +57,8 @@ public class Pessoa {
 
     private String celular;
 
+    private Integer ativo;
+
     @NotNull
     @ManyToOne
     @JoinColumn(name = "tipo_pessoa")        

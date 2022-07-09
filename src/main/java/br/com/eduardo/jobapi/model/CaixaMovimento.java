@@ -56,10 +56,6 @@ public class CaixaMovimento {
     private Double valor;
 
     @NonNull
-    @Column(name = "tipo_movimento")
-    private String tipoMovimento;
-
-    @NonNull
     @Column(name = "data_movimento")
     private LocalDateTime dataMovimento;
 

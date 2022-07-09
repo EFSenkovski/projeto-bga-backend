@@ -8,12 +8,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.security.access.prepost.PreAuthorize;
 import javax.servlet.http.HttpServletResponse;
@@ -26,9 +28,6 @@ import java.util.Optional;
 public class PessoaController {
 
     @Autowired
-    private Pessoa pessoa;
-
-    @Autowired
     private PessoaRepository pessoaRepository;
 
     @Autowired
@@ -38,9 +37,15 @@ public class PessoaController {
     private ApplicationEventPublisher publisher;
 
     @GetMapping
-    //@PreAuthorize("hasAuthority('ROLE_LISTAR_PESSOAS') and hasAuthority('SCOPE_read')")
+    @PreAuthorize("hasAuthority('ROLE_LISTAR_PESSOAS') and hasAuthority('SCOPE_read')")
     public List<Pessoa> listarTodos(){
-        return pessoaRepository.findAll();
+        return pessoaRepository.findAllAtivos();
+    }   
+
+    @GetMapping("/filtrar")
+    @PreAuthorize("hasAuthority('ROLE_LISTAR_PESSOAS') and hasAuthority('SCOPE_read')")
+    public List<Pessoa> listarPorNome(@RequestParam("nome") String nome){
+        return pessoaRepository.findByNome(nome);
     }
 
     @GetMapping("/{id}")
@@ -62,4 +67,17 @@ public class PessoaController {
         Pessoa pessoaSalva = pessoaService.atualizar(id, pessoa);
         return ResponseEntity.ok(pessoaSalva);
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Long> inativar(@PathVariable Long id){
+        Optional<Pessoa> pessoaRecuperado = pessoaRepository.findById(id);
+        if (pessoaRecuperado.isPresent()) {
+            Pessoa pessoa = pessoaRecuperado.get();
+            pessoa.setAtivo(0);
+            pessoaService.atualizar(id, pessoa);
+            return new ResponseEntity<>(id, HttpStatus.OK);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }   
 }
