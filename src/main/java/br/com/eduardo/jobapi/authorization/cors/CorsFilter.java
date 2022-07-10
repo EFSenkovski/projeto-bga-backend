@@ -18,7 +18,7 @@ import org.springframework.stereotype.Component;
 @Order(Ordered.HIGHEST_PRECEDENCE)
 public class CorsFilter implements Filter {
 
-	private String originPermitida = "https://projeto-bga-angular.herokuapp.com/login"; // TODO: Configurar para diferentes ambientes
+	private String originPermitida = "https://projeto-bga-angular.herokuapp.com"; // TODO: Configurar para diferentes ambientes
 
     @Override
     public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain)
