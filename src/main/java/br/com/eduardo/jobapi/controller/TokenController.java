@@ -17,7 +17,7 @@ public class TokenController {
     public void revoke(HttpServletRequest req, HttpServletResponse resp){
         Cookie c = new Cookie("refreshToken", null);
         c.setHttpOnly(true);
-        c.setSecure(false);
+        c.setSecure(true);
         c.setPath(req.getContextPath() + "/oauth/token");
         c.setMaxAge(0);
 

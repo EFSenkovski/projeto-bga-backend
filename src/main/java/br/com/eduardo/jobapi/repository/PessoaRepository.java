@@ -14,4 +14,5 @@ public interface PessoaRepository extends JpaRepository<Pessoa, Long> {
 
     @Query("SELECT p FROM Pessoa p WHERE p.ativo = 1")
     List<Pessoa> findAllAtivos();
+
 }
